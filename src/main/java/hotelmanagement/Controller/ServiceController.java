@@ -3,7 +3,7 @@ package hotelmanagement.Controller;
 import hotelmanagement.Dto.ServiceDTO;
 import hotelmanagement.Model.Service;
 import hotelmanagement.Service.ServiceService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +43,8 @@ public class ServiceController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> insertService(@Valid @RequestBody ServiceDTO serviceDTO,
+    public ResponseEntity<?> insertService(//@Valid
+                                               @RequestBody ServiceDTO serviceDTO,
                                                 BindingResult result) {
 
         if (result.hasErrors()) {

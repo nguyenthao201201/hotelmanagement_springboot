@@ -4,7 +4,7 @@ import hotelmanagement.Dto.BookingDTO;
 import hotelmanagement.Model.Booking;
 import hotelmanagement.Service.BookingService;
 import hotelmanagement.Service.IBookingService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +46,8 @@ public class BookingController {
 
     @GetMapping ("/user/{user_id}") //
     //GET http://localhost:8088/api/v1/bookings/user/4
-    public ResponseEntity<?> getBookings(@Valid @PathVariable("user_id") Long userId) {
+    public ResponseEntity<?> getBookings(//@Valid
+                                             @PathVariable("user_id") Long userId) {
 
         try {
             List<Booking> bookings = bookingService.findByUserId(userId);
@@ -56,7 +57,8 @@ public class BookingController {
         }
     }
     @PostMapping("/create")
-    public ResponseEntity<?> insertBooking(@Valid @RequestBody BookingDTO bookingDTO,
+    public ResponseEntity<?> insertBooking(//@Valid
+                                               @RequestBody BookingDTO bookingDTO,
                                                 BindingResult result) {
 
         try {
@@ -80,8 +82,10 @@ public class BookingController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<?> updateBooking(@Valid @PathVariable("id") long bookingId,
-                                                @Valid @RequestBody BookingDTO bookingDTO,
+    public ResponseEntity<?> updateBooking(//@Valid
+                                               @PathVariable("id") long bookingId,
+                                                //@Valid
+                                               @RequestBody BookingDTO bookingDTO,
                                                 BindingResult result) {
 
 

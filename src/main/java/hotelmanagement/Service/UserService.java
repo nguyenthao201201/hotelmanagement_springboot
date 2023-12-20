@@ -10,12 +10,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class UserService implements IUserService{
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
+    private final UserRepository userRepository;
+
+    private final RoleRepository roleRepository;
     @Override
     public User createUser(UserDTO userDTO) throws Exception{
         String phoneNumber = userDTO.getPhoneNumber();
@@ -37,11 +40,29 @@ public class UserService implements IUserService{
                 .orElseThrow(() -> new DataNotFoundException("Role not found"));
 
         newUser.setRole(role);
+
+
         return userRepository.save(newUser);
     }
 
     @Override
-    public String login(String phoneNumber, String password) {
-        return null;
+    public User login(String phoneNumber, String password) throws Exception{
+
+        Optional<User> optionalUser = userRepository.findByPhoneNumber(phoneNumber);
+        if(optionalUser.isEmpty()){
+            throw new DataNotFoundException(" Invalid phone number/ password");
+        }
+        return optionalUser.get();
+        //User existedUser = optionalUser.get();
+        //check Password
+//        if(!passwordEncoder.matches(password, existedUser.getPassword())){
+//            throw new BadCredentialsException("Invalid phone number/ password");
+        }
+//        //authenticate with Java Spring Security
+//        UsernamePasswordAuthenticationToken authenticationToken =
+//                new UsernamePasswordAuthenticationToken(phoneNumber, password);
+//      authenticationManager.authenticate(authenticationToken) ;
+//
+//        return jwtTokenUtil.generateToken(existedUser);
     }
-}
+//}

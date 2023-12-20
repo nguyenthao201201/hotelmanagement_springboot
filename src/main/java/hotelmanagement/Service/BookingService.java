@@ -34,7 +34,7 @@ public class BookingService implements IBookingService {
             //dùng thư viện Model Mapper
 
           modelMapper.typeMap(BookingDTO.class, Booking.class)
-                  .addMappings(mapper -> mapper.skip(Booking::setBookingId));
+                  .addMappings(mapper -> mapper.skip(Booking::setId));
 
             Booking newBooking = new Booking();
 
@@ -70,7 +70,7 @@ public class BookingService implements IBookingService {
                 new DataNotFoundException("Cannot find user with id: " + id));
         // Tạo một luồng bảng ánh xạ riêng để kiểm soát việc ánh xạ
         modelMapper.typeMap(BookingDTO.class, Booking.class)
-                .addMappings(mapper -> mapper.skip(Booking::setBookingId));
+                .addMappings(mapper -> mapper.skip(Booking::setId));
         // Cập nhật các trường của đơn hàng từ orderDTO
         modelMapper.map(bookingDTO, booking);
         booking.setUser(existingUser);

@@ -3,7 +3,7 @@ package hotelmanagement.Controller;
 import hotelmanagement.Dto.RoomDTO;
 import hotelmanagement.Model.Room;
 import hotelmanagement.Service.RoomService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,8 @@ public class RoomController {
         }
     }
     @PostMapping("")
-    public ResponseEntity<?> insertRoom(@Valid @RequestBody RoomDTO roomDTO,
+    public ResponseEntity<?> insertRoom(//@Valid
+                                            @RequestBody RoomDTO roomDTO,
                                              BindingResult result){
 
         if (result.hasErrors()) {

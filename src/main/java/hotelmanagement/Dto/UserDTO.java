@@ -1,7 +1,7 @@
 package hotelmanagement.Dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.Date;
@@ -15,13 +15,13 @@ import java.util.Date;
 public class UserDTO {
     @JsonProperty("full_name")
     private String fullName;
-    @NotBlank(message = "Phone number is mandatory")
+    //@NotBlank(message = "Phone number is mandatory")
     @JsonProperty("phone_number")
     private String phoneNumber;
     @JsonProperty("address")
     private String address;
 
-    @NotBlank(message = "Password is mandatory")
+//    @NotBlank(message = "Password is mandatory")
     private String password;
 
     @JsonProperty("retype_password")

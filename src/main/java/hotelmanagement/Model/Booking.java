@@ -13,11 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bookings")
+
 public class Booking extends BaseEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "booking_id")
-    private Long bookingId;
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "check_in")
     private Date checkIn;
@@ -53,5 +54,6 @@ public class Booking extends BaseEntity{
     @Column(name = "payment_date")
     private LocalDate paymentDate;
 
-    private boolean active;
+    @Column(name = "active")
+    private Boolean active;
 }

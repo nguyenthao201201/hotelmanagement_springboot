@@ -1,8 +1,8 @@
 package hotelmanagement.Dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.Min;
+//import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class BookingDTO {
 
     @JsonProperty("user_id")
-    @Min(value = 1, message = "User Id must be >= 0")
+   // @Min(value = 1, message = "User Id must be >= 0")
     private Long UserId;
 
     @JsonProperty("full_name")
@@ -25,7 +25,7 @@ public class BookingDTO {
     private String email;
 
     @JsonProperty("phone_number")
-    @NotBlank(message = "Phone number is mandatory")
+ //   @NotBlank(message = "Phone number is mandatory")
     private String phoneNumber;
 
     private String address;
@@ -41,7 +41,7 @@ public class BookingDTO {
     private String status;
 
     @JsonProperty("total_money")
-    @Min(value = 0, message = "Total money must be >= 0")
+   // @Min(value = 0, message = "Total money must be >= 0")
     private BigDecimal totalMoney;
 
     @JsonProperty("payment_date")

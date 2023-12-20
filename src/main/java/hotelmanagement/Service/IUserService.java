@@ -6,7 +6,7 @@ import hotelmanagement.Model.User;
 public interface IUserService {
     User createUser(UserDTO userDTO) throws Exception;
 
-    String login(String phoneNumber, String password);
+    User login(String phoneNumber, String password) throws Exception;
 
 }
 

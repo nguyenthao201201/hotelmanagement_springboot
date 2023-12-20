@@ -1,4 +1,4 @@
-package hotelmanagement;
+package hotelmanagement.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

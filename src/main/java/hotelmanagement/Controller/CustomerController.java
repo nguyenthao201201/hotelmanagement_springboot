@@ -1,7 +1,7 @@
 package hotelmanagement.Controller;
 
 import hotelmanagement.Dto.CustomerDTO;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +21,8 @@ public class CustomerController {
         return ResponseEntity.ok("getCustomer Id here" + customerId);
     }
     @PostMapping("")
-    public ResponseEntity<String> insertCustomer(@Valid @RequestBody CustomerDTO customerDTO
+    public ResponseEntity<String> insertCustomer(//@Valid
+                                                     @RequestBody CustomerDTO customerDTO
                                                 , BindingResult result){
         if (result.hasErrors()) {
             StringBuilder errormessage = new StringBuilder();
